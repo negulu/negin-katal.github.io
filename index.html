@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Negin Katal | Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-deep:   #3b1278;
+      --purple-mid:    #5c2aaa;
+      --purple-soft:   #8b5cf6;
+      --purple-pale:   #ede9fe;
+      --yellow:        #f0c419;
+      --yellow-warm:   #fbbf24;
+      --yellow-pale:   #fef9e7;
+      --off-white:     #faf9f7;
+      --text:          #1a1028;
+      --text-muted:    #6b5f84;
+      --border:        #ddd6f3;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--off-white);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,249,247,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 3rem;
+      height: 60px;
+    }
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--purple-deep);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--purple-deep); }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 0 80px; }
+    .container { max-width: 780px; margin: 0 auto; padding: 0 2rem; }
+    .container-wide { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── HERO ── */
+    #home {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      background: linear-gradient(160deg, #f5f0ff 0%, var(--off-white) 55%);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: start;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--purple-deep);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 6vw, 4rem);
+      font-weight: 600;
+      color: var(--purple-deep);
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+    .hero-pronouns {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 1.2rem;
+    }
+    .hero-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--purple-mid);
+      margin-bottom: 1.4rem;
+      line-height: 1.5;
+    }
+    .hero-intro {
+      color: #4a3d62;
+      font-size: 0.97rem;
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 2rem;
+    }
+
+    /* Social icons row */
+    .social-row { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .social-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 6px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      background: white;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      letter-spacing: 0.03em;
+    }
+    .social-btn:hover {
+      border-color: var(--purple-mid);
+      color: var(--purple-deep);
+      background: var(--purple-pale);
+    }
+    .social-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* Photo */
+    .hero-photo {
+      width: 180px; height: 220px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--purple-pale);
+      border: 3px solid white;
+      box-shadow: 0 8px 32px rgba(59,18,120,0.12);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 1rem;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Yellow accent bar */
+    .accent-bar {
+      width: 48px; height: 4px;
+      background: var(--yellow);
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── SECTION TITLES ── */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--purple-soft);
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--purple-deep);
+      line-height: 1.15;
+      margin-bottom: 2rem;
+    }
+
+    /* ── RESEARCH ── */
+    #research { background: white; }
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .research-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .research-card:hover {
+      box-shadow: 0 4px 20px rgba(59,18,120,0.08);
+      border-color: var(--purple-soft);
+    }
+    .card-icon {
+      width: 36px; height: 36px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .research-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--purple-deep);
+      margin-bottom: 0.5rem;
+    }
+    .research-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── CV ── */
+    #cv { background: var(--off-white); }
+    .cv-block { margin-bottom: 2.5rem; }
+    .cv-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--purple-deep);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1.5px solid var(--border);
+    }
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cv-entry:last-child { border-bottom: none; }
+    .cv-year {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      padding-top: 0.1rem;
+    }
+    .cv-entry-body strong {
+      display: block;
+      font-size: 0.93rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+    .cv-entry-body span {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    /* Awards highlight */
+    .award-pill {
+      display: inline-block;
+      background: var(--yellow-pale);
+      border: 1px solid #f0c41966;
+      color: #7a5800;
+      font-size: 0.78rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-top: 0.3rem;
+    }
+
+    /* ── PUBLICATIONS / TALKS ── */
+    #publications { background: white; }
+    .pub-list { list-style: none; }
+    .pub-item {
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-type {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: white;
+      background: var(--purple-soft);
+      padding: 2px 8px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+    .pub-type.talk { background: var(--purple-mid); }
+    .pub-type.poster { background: var(--text-muted); }
+    .pub-type.paper { background: var(--purple-deep); }
+    .pub-title {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      line-height: 1.5;
+    }
+    .pub-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .pub-meta a { color: var(--purple-mid); text-decoration: none; }
+    .pub-meta a:hover { text-decoration: underline; }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--purple-deep);
+      color: white;
+    }
+    #contact .section-label { color: var(--yellow); }
+    #contact h2 { color: white; }
+    #contact p { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .contact-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact-icon svg { width: 16px; height: 16px; stroke: var(--yellow); }
+    .contact-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 0.2rem;
+    }
+    .contact-value {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .contact-value a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    .contact-value a:hover { color: var(--yellow); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #26084f;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.78rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text > * { animation: fadeUp 0.6s ease both; }
+    .hero-text > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-text > *:nth-child(2) { animation-delay: 0.2s; }
+    .hero-text > *:nth-child(3) { animation-delay: 0.3s; }
+    .hero-text > *:nth-child(4) { animation-delay: 0.4s; }
+    .hero-text > *:nth-child(5) { animation-delay: 0.5s; }
+    .hero-text > *:nth-child(6) { animation-delay: 0.6s; }
+    .hero-photo { animation: fadeUp 0.7s 0.35s ease both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links { gap: 1rem; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo { width: 140px; height: 170px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .cv-entry { grid-template-columns: 80px 1fr; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-name">Negin Katal</a>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="container-wide">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-tag">PostDoc · University of Freiburg</div>
+        <h1>Negin Katal</h1>
+        <p class="hero-pronouns">they / them</p>
+        <p class="hero-role">
+          Sensor-based Geoinformatics Lab<br>
+          Chair of Geoinformatics · University of Freiburg, Germany
+        </p>
+        <p class="hero-intro">
+          I study how citizen science and machine learning can unlock new insights in 
+          plant phenology and biodiversity monitoring. My work sits at the intersection 
+          of ecology, computer vision, and large-scale opportunistic data — asking how 
+          unstructured observations from millions of people can contribute to rigorous 
+          environmental science.
+        </p>
+        <div class="social-row">
+          <a href="https://scholar.google.com/citations?user=sOzsaJkAAAAJ&hl=en" class="social-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Google Scholar
+          </a>
+          <a href="https://orcid.org/0000-0002-0225-7243" class="social-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            ORCID
+          </a>
+          <a href="https://www.researchgate.net/profile/Negin-Katal" class="social-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12h4a2 2 0 000-4H9v8m4-4h2"/></svg>
+            ResearchGate
+          </a>
+          <a href="https://www.linkedin.com/in/negin-katal-a4938b18b/" class="social-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <!-- Replace the src below with your actual photo URL -->
+      <div class="hero-photo">
+        <img src="YOUR_PHOTO_URL_HERE" alt="Negin Katal"
+          onerror="this.parentElement.innerHTML='<p style=\'font-size:0.75rem;color:#8b5cf6;padding:1rem;\'>Add your photo<br>by replacing<br>YOUR_PHOTO_URL_HERE</p>'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <p class="section-label">What I work on</p>
+    <div class="accent-bar"></div>
+    <h2>Research Interests</h2>
+    <p style="color: var(--text-muted); font-size:0.95rem; margin-bottom: 0.5rem;">
+      My research investigates how unstructured, citizen-generated data — combined with modern 
+      machine learning — can contribute to large-scale ecological monitoring. The main application 
+      domain is plant phenology and functional diversity.
+    </p>
+    <div class="research-grid">
+      <div class="research-card">
+        <div class="card-icon">🌿</div>
+        <h3>Citizen Science Data</h3>
+        <p>Exploring how opportunistic observations from platforms like iNaturalist and Flora Incognita can be analysed for biodiversity and phenology research.</p>
+      </div>
+      <div class="research-card">
+        <div class="card-icon">🔭</div>
+        <h3>Biodiversity Monitoring</h3>
+        <p>Revealing plant functional diversity at regional to continental scales by leveraging large photographic datasets and Earth observation data.</p>
+      </div>
+      <div class="research-card">
+        <div class="card-icon">🤖</div>
+        <h3>Computer Vision & ML</h3>
+        <p>Developing deep learning pipelines to automate phenological annotation of plant images, replacing or augmenting expert-based labelling.</p>
+      </div>
+      <div class="research-card">
+        <div class="card-icon">📡</div>
+        <h3>Plant Phenology</h3>
+        <p>Using AI-based plant identification apps as a novel sensor system for tracking seasonal changes in vegetation across diverse ecosystems.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem; padding:1.4rem; background:var(--purple-pale); border-left:4px solid var(--purple-mid); border-radius:4px;">
+      <strong style="color:var(--purple-deep); font-size:0.9rem;">Current Project</strong>
+      <p style="font-size:0.88rem; color:var(--text-muted); margin-top:0.3rem;">
+        <strong style="color:var(--text);">PANOPS</strong> — Revealing Earth's plant functional diversity with citizen science. 
+        A project at the Sensor-based Geoinformatics Lab, University of Freiburg.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CV -->
+<section id="cv">
+  <div class="container">
+    <p class="section-label">Background</p>
+    <div class="accent-bar"></div>
+    <h2>Curriculum Vitae</h2>
+
+    <div class="cv-block">
+      <h3>Positions</h3>
+      <div class="cv-entry">
+        <div class="cv-year">2025 – now</div>
+        <div class="cv-entry-body">
+          <strong>PostDoc · Sensor-based Geoinformatics Lab</strong>
+          <span>University of Freiburg, Freiburg, Germany</span>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">2021 – 2024</div>
+        <div class="cv-entry-body">
+          <strong>PhD Candidate · Department of Biogeochemical Integration</strong>
+          <span>Max Planck Institute for Biogeochemistry, Jena, Germany</span>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">2020 – 2021</div>
+        <div class="cv-entry-body">
+          <strong>Research Associate · Disturbance Ecology Lab</strong>
+          <span>University of Bayreuth, Bayreuth, Germany</span>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">2016 – 2017</div>
+        <div class="cv-entry-body">
+          <strong>Research Associate · Halophyte & C4 Plants Lab</strong>
+          <span>University of Tehran, Tehran, Iran</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-block">
+      <h3>Education</h3>
+      <div class="cv-entry">
+        <div class="cv-year">2021 – 2024</div>
+        <div class="cv-entry-body">
+          <strong>PhD · Biogeochemical Integration</strong>
+          <span>Max Planck Institute for Biogeochemistry, Jena, Germany</span>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">2017 – 2019</div>
+        <div class="cv-entry-body">
+          <strong>M.Sc. Geoecology / Landscape Ecology</strong>
+          <span>University of Bayreuth, Germany · Thesis: Contribution of endemism to dark diversity on an environmentally heterogeneous oceanic island</span>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">2011 – 2016</div>
+        <div class="cv-entry-body">
+          <strong>B.Sc. Biology / Plant Science</strong>
+          <span>University of Tehran, Iran · Thesis: Propagating Chenopodiaceae family via tissue culture</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-block">
+      <h3>Awards & Recognition</h3>
+      <div class="cv-entry">
+        <div class="cv-year">2023</div>
+        <div class="cv-entry-body">
+          <strong>Best Poster Award</strong>
+          <span>52nd GfÖ Annual Meeting, Leipzig, Germany</span>
+          <span class="award-pill">🏆 Award</span>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">2022</div>
+        <div class="cv-entry-body">
+          <strong>Best Poster Award</strong>
+          <span>iDiv Annual Conference (online)</span>
+          <span class="award-pill">🏆 Award</span>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">2020</div>
+        <div class="cv-entry-body">
+          <strong>Student Travel Award</strong>
+          <span>International Biogeography Society's ECBC Amsterdam</span>
+          <span class="award-pill">✈ Travel Grant</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-block">
+      <h3>Community Service</h3>
+      <div class="cv-entry">
+        <div class="cv-year">2021 – 2024</div>
+        <div class="cv-entry-body">
+          <strong>Elected DEI Officer</strong>
+          <span>Max Planck Institute for Biogeochemistry — Diversity, Equity & Inclusion representative</span>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">ongoing</div>
+        <div class="cv-entry-body">
+          <strong>Member · <a href="https://isnbs.org" style="color:var(--purple-mid)">ISNBS</a></strong>
+          <span>International Society of Non-Binary Scientists</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS & TALKS -->
+<section id="publications">
+  <div class="container">
+    <p class="section-label">Output</p>
+    <div class="accent-bar"></div>
+    <h2>Publications & Presentations</h2>
+
+    <ul class="pub-list">
+      <li class="pub-item">
+        <span class="pub-type paper">Paper</span>
+        <p class="pub-title">Cutts, V; <strong>Katal, N</strong>; Löwer, C; Algar, A.C.; Steinbauer, M.J.; Irl, S.D.H.; Beierkuhnlein, C; Field, R (2019). The effect of small-scale topography on patterns of endemism within islands.</p>
+        <p class="pub-meta"><a href="https://doi.org/10.21425/F5FBG43737" target="_blank" rel="noopener">doi.org/10.21425/F5FBG43737</a></p>
+      </li>
+      <li class="pub-item">
+        <span class="pub-type talk">Talk</span>
+        <p class="pub-title">Leveraging Citizen Science and Machine Learning for Plant Phenology Monitoring · Co-chair of "Collection-based Research in Plant Ecology"</p>
+        <p class="pub-meta">53rd GfÖ Annual Meeting, Freising, Germany · 2024</p>
+      </li>
+      <li class="pub-item">
+        <span class="pub-type poster">Poster</span>
+        <p class="pub-title">Enhancing Plant Phenological Monitoring Through Automated Annotation of Opportunistic Observations</p>
+        <p class="pub-meta">Biogeography and Macroecology Meeting, Marburg, Germany · 2024</p>
+      </li>
+      <li class="pub-item">
+        <span class="pub-type talk">Talk</span>
+        <p class="pub-title">Leveraging Citizen Science and Machine Learning for Plant Phenology Monitoring</p>
+        <p class="pub-meta">EGU General Assembly, Vienna, Austria · 2024 · <a href="https://meetingorganizer.copernicus.org/EGU24/EGU24-6301.html" target="_blank">Abstract</a></p>
+      </li>
+      <li class="pub-item">
+        <span class="pub-type poster">Poster</span>
+        <p class="pub-title">Deep learning approach for revolutionizing phenology research: leveraging opportunistic data for ecological insights</p>
+        <p class="pub-meta">52nd GfÖ Annual Meeting, Leipzig, Germany · 2023 · <span class="award-pill">🏆 Best Poster</span></p>
+      </li>
+      <li class="pub-item">
+        <span class="pub-type talk">Invited Talk</span>
+        <p class="pub-title">Opportunistic vs. targeted observations: Can unsystematic records from an AI-based plant identification app contribute to phenology monitoring?</p>
+        <p class="pub-meta">PhenObs Seminar Series (online) · 2023</p>
+      </li>
+      <li class="pub-item">
+        <span class="pub-type poster">Poster</span>
+        <p class="pub-title">Application of Machine Learning in Plant Sciences</p>
+        <p class="pub-meta">Zürich-Basel Plant Science Center Summer School · 2022</p>
+      </li>
+      <li class="pub-item">
+        <span class="pub-type poster">Poster</span>
+        <p class="pub-title">Observing Phenology using Flora Incognita Observations</p>
+        <p class="pub-meta">iDiv Annual Conference (online) · 2022 · <span class="award-pill">🏆 Best Poster</span></p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Get in touch</p>
+    <div class="accent-bar" style="background:var(--yellow);"></div>
+    <h2>Contact</h2>
+    <p>I'm always happy to talk about citizen science, machine learning for ecology, or potential collaborations.</p>
+
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="mailto:negin.katal@geosense.uni-freiburg.de">negin.katal@geosense.uni-freiburg.de</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">Address</div>
+          <div class="contact-value">Tennenbacher Str. 4, Room 03.072<br>79106 Freiburg, Germany</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <line x1="3" y1="9" x2="21" y2="9"/>
+            <line x1="9" y1="21" x2="9" y2="9"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">Institution</div>
+          <div class="contact-value"><a href="https://uni-freiburg.de/enr-geosense/" target="_blank">Chair of Sensor-based Geoinformatics<br>University of Freiburg</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value"><a href="https://www.linkedin.com/in/negin-katal-a4938b18b/" target="_blank">linkedin.com/in/negin-katal</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Negin Katal · Built with HTML/CSS · <a href="#home" style="color:rgba(255,255,255,0.4); text-decoration:none;">Back to top ↑</a>
+</footer>
+
+</body>
+</html>
